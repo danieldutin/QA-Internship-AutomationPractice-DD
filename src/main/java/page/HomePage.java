@@ -1,5 +1,6 @@
 package page;
 
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,9 +13,20 @@ public class HomePage {
         this.driver=driver;
     }
 
-    public LoginPage clickSignUpButton(){
+    public LoginPage clickSignUpButtonLogIn(){
 
         driver.findElement(signUpButton).click();
         return new LoginPage(driver);
     }
+
+    public CreateAccount clickSignUpButtonCreate(){
+
+        driver.findElement(signUpButton).click();
+        return new CreateAccount(driver);
+    }
+
+
+
+
+
 }

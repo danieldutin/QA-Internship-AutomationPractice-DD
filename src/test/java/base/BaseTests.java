@@ -25,7 +25,7 @@ public class BaseTests {
     @BeforeClass
      public WebDriver createWebDriver() throws Exception{
 
-        FileInputStream propRead = new FileInputStream("C:\\Users\\danie\\IdeaProjects\\QA-Internship-AutomationPractice-DD\\resources");
+        FileInputStream propRead = new FileInputStream("resources\\config.properties");
 
         Properties prop = new Properties();
 
