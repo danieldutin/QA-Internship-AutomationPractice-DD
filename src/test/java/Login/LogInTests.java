@@ -1,5 +1,6 @@
-package base;
+package Login;
 
+import base.BaseTests;
 import org.testng.annotations.Test;
 import page.AccountPage;
 import page.LoginPage;
@@ -9,7 +10,7 @@ import java.util.Properties;
 
 import static org.testng.Assert.*;
 
-public class LogInTests extends BaseTests{
+public class LogInTests extends BaseTests {
 
 
     @Test

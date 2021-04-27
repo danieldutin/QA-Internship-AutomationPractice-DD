@@ -8,7 +8,7 @@ import java.util.Collection;
 public class CreateAccount {
 
     private WebDriver driver;
-    private By newEmail = By.id("isEmail");
+    private By newEmail = By.id("email_create");
     private By createButton = By.id("SubmitCreate");
 
 

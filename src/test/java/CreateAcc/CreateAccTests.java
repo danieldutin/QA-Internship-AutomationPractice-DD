@@ -1,18 +1,20 @@
-package base;
+package CreateAcc;
 
+import base.BaseTests;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import page.CreateAccount;
+import page.HomePage;
 import page.NewUserPage;
 
 import java.io.FileInputStream;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 import static org.testng.Assert.assertTrue;
 
-public class CreateAccTests extends BaseTests{
+public class CreateAccTests extends BaseTests {
 
     @Test
     public void validEmailTest() throws Exception{
@@ -20,30 +22,22 @@ public class CreateAccTests extends BaseTests{
         FileInputStream propRead = new FileInputStream("resources\\config.properties");
         Properties prop = new Properties();
         prop.load(propRead);
+
         String email = prop.getProperty("newEmail");
+        String authentication = prop.getProperty("authentication");
 
         CreateAccount createAccount = homePage.clickSignUpButtonCreate();
         createAccount.setEmailField(email);
-        //createAccount.clickCreateButton();
-
         NewUserPage newUserPage = createAccount.clickCreateButton();
 
-        boolean present;
-        try {
-            driver.findElement(By.id("account-creation_form"));
-            present = true;
-        } catch (NoSuchElementException e){
-            present = false;
-        }
-
-        assertTrue(present);
-
+        String actualContent = newUserPage.getAlertText();
+        assertTrue(actualContent.contains(authentication),"Alert is incorrect!");
 
     }
 
-    @Test
+    /*@Test
     public void accountCreatedTest(){
 
 
-    }
+    }*/
 }
