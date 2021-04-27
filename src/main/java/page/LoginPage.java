@@ -10,21 +10,21 @@ public class LoginPage {
     private By passwordField = By.id("passwd");
     private By submitButton = By.id("SubmitLogin");
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void setEmailField(String email){
+    public void setEmailField(String email) {
 
         driver.findElement(emailField).sendKeys(email);
     }
 
-    public void setPasswordField(String pass){
+    public void setPasswordField(String pass) {
 
         driver.findElement(passwordField).sendKeys(pass);
     }
 
-    public AccountPage clickSignUpButton(){
+    public AccountPage clickSignUpButton() {
 
         driver.findElement(submitButton).click();
         return new AccountPage(driver);

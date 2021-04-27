@@ -1,5 +1,6 @@
 package base;
 
+import helper.ConfigFileReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
@@ -22,21 +23,13 @@ public class BaseTests {
     public WebDriver driver;
     protected HomePage homePage;
 
-    @BeforeClass
-     public WebDriver createWebDriver() throws Exception{
 
-        FileInputStream propRead = new FileInputStream("resources\\config.properties");
+    public WebDriver startWebDriver() throws Exception {
 
-        Properties prop = new Properties();
-
-        prop.load(propRead);
-
-
-       String browser = prop.getProperty("browser");
-       String url = prop.getProperty("url");
-
-        prop.load(propRead);
-        switch (browser){
+        ConfigFileReader fileReader = new ConfigFileReader();
+        String browser = fileReader.getDriverType();
+        String url = fileReader.getApplicationUrl();
+        switch (browser) {
 
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -66,7 +59,7 @@ public class BaseTests {
     }
 
     @AfterClass
-    public void closingDown(){
+    public void closingDown() {
 
         this.driver.quit();
     }

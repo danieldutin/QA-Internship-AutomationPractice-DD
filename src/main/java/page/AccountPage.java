@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class AccountPage {
 
     private WebDriver driver;
-    private By welcomeMessage = By.id("center_column");
+    private By welcomeMessage = By.xpath("//*[@id=\"center_column\"]/h1");
     public AccountPage(WebDriver driver){
         this.driver = driver;
     }

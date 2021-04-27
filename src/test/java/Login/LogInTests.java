@@ -1,8 +1,10 @@
 package Login;
 
 import base.BaseTests;
+import helper.ConfigFileReader;
 import org.testng.annotations.Test;
 import page.AccountPage;
+import page.HomePage;
 import page.LoginPage;
 
 import java.io.FileInputStream;
@@ -14,21 +16,21 @@ public class LogInTests extends BaseTests {
 
 
     @Test
-    public void testSuccessfulLogin() throws Exception{
+    public void testSuccessfulLogin() throws Exception {
 
-        FileInputStream propRead = new FileInputStream("resources\\config.properties");
-        Properties prop = new Properties();
-        prop.load(propRead);
+        HomePage homePage = new HomePage(startWebDriver());
 
-        String email = prop.getProperty("email");
-        String pass = prop.getProperty("pass");
-        String welcome = prop.getProperty("welcome");
+        ConfigFileReader reader = new ConfigFileReader();
+        String email = reader.getProperty("newEmail");
+        String pass = reader.getProperty("pass");
+        String welcome = reader.getProperty("welcome");
 
-       LoginPage loginPage = homePage.clickSignUpButtonLogIn();
-       loginPage.setEmailField(email);
-       loginPage.setPasswordField(pass);
-       AccountPage accountPage = loginPage.clickSignUpButton();
-       assertTrue(accountPage.getAlertText().contains(welcome), "Incorrect data");
+        LoginPage loginPage = homePage.clickSignUpButtonLogIn();
+        loginPage.setEmailField(email);
+        loginPage.setPasswordField(pass);
+        AccountPage accountPage = loginPage.clickSignUpButton();
+
+        assertTrue(accountPage.getAlertText().contains(welcome), "Incorrect data");
 
     }
 }

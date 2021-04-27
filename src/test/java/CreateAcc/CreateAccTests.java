@@ -1,37 +1,32 @@
 package CreateAcc;
 
 import base.BaseTests;
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import page.CreateAccount;
+import page.CreateAccountPage;
 import page.HomePage;
 import page.NewUserPage;
+import helper.ConfigFileReader;
 
-import java.io.FileInputStream;
-import java.util.NoSuchElementException;
-import java.util.Properties;
-
-import static org.testng.Assert.*;
 import static org.testng.Assert.assertTrue;
 
 public class CreateAccTests extends BaseTests {
 
+
     @Test
-    public void validEmailTest() throws Exception{
+    public void validEmailTest() throws Exception {
 
-        FileInputStream propRead = new FileInputStream("resources\\config.properties");
-        Properties prop = new Properties();
-        prop.load(propRead);
+        HomePage homePage = new HomePage(startWebDriver());
 
-        String email = prop.getProperty("newEmail");
-        String authentication = prop.getProperty("authentication");
+        ConfigFileReader reader = new ConfigFileReader();
+        String email = reader.getProperty("newEmail");
+        String authentication = reader.getProperty("authentication");
 
-        CreateAccount createAccount = homePage.clickSignUpButtonCreate();
-        createAccount.setEmailField(email);
-        NewUserPage newUserPage = createAccount.clickCreateButton();
+        CreateAccountPage createAccountPage = homePage.clickSignUpButtonCreate();
+        createAccountPage.setEmailField(email);
+        NewUserPage newUserPage = createAccountPage.clickCreateButton();
 
         String actualContent = newUserPage.getAlertText();
-        assertTrue(actualContent.contains(authentication),"Alert is incorrect!");
+        assertTrue(actualContent.contains(authentication), "Alert is incorrect!");
 
     }
 

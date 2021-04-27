@@ -5,14 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.Collection;
 
-public class CreateAccount {
+public class CreateAccountPage {
 
     private WebDriver driver;
     private By newEmail = By.id("email_create");
     private By createButton = By.id("SubmitCreate");
 
 
-    public CreateAccount(WebDriver driver){
+    public CreateAccountPage(WebDriver driver){
         this.driver = driver;
     }
 
