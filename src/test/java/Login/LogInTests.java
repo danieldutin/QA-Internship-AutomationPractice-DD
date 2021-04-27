@@ -21,7 +21,7 @@ public class LogInTests extends BaseTests {
         HomePage homePage = new HomePage(startWebDriver());
 
         ConfigFileReader reader = new ConfigFileReader();
-        String email = reader.getProperty("newEmail");
+        String email = reader.getProperty("email");
         String pass = reader.getProperty("pass");
         String welcome = reader.getProperty("welcome");
 
@@ -29,8 +29,9 @@ public class LogInTests extends BaseTests {
         loginPage.setEmailField(email);
         loginPage.setPasswordField(pass);
         AccountPage accountPage = loginPage.clickSignUpButton();
+        String myAccountText = accountPage.getAlertText();
 
-        assertTrue(accountPage.getAlertText().contains(welcome), "Incorrect data");
+        assertTrue(myAccountText.contains(welcome), "Incorrect data");
 
     }
 }
