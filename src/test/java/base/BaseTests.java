@@ -2,27 +2,19 @@ package base;
 
 import helper.ConfigFileReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import page.HomePage;
-
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTests {
 
     public WebDriver driver;
     protected HomePage homePage;
-
 
     public WebDriver startWebDriver() throws Exception {
 
@@ -58,7 +50,7 @@ public class BaseTests {
         return driver;
     }
 
-    @AfterClass
+    @AfterMethod
     public void closingDown() {
 
         this.driver.quit();

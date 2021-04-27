@@ -21,7 +21,7 @@ public class LogInTests extends BaseTests {
         HomePage homePage = new HomePage(startWebDriver());
 
         ConfigFileReader reader = new ConfigFileReader();
-        String email = reader.getProperty("email");
+        String email = reader.getProperty("loginEmail");
         String pass = reader.getProperty("pass");
         String welcome = reader.getProperty("welcome");
 

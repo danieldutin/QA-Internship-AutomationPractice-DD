@@ -22,7 +22,7 @@ public class CreateAccTests extends BaseTests {
 
         HomePage homePage = new HomePage(startWebDriver());
 
-        String email = reader.getProperty("newEmail");
+        String email = reader.getProperty("emailCreate");
         String authentication = reader.getProperty("authentication");
 
         CreateAccountPage createAccountPage = homePage.clickSignUpButtonCreate();
@@ -39,7 +39,7 @@ public class CreateAccTests extends BaseTests {
 
         HomePage homePage = new HomePage(startWebDriver());
 
-        String email = reader.getProperty("anotherEmail");
+        String email = reader.getProperty("newEmail");
         //String authentication = reader.getProperty("authentication");
         String title = reader.getProperty("title");
         String firstName = reader.getProperty("firstName");
