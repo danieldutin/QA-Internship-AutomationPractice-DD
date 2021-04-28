@@ -35,7 +35,7 @@ public class CreateAccTests extends BaseTests {
     }
 
     @Test
-    public void accountCreatedTest() throws Exception{
+    public void accountCreatedTest() throws Exception {
 
         HomePage homePage = new HomePage(startWebDriver());
 

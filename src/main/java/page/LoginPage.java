@@ -30,6 +30,4 @@ public class LoginPage {
         return new AccountPage(driver);
     }
 
-
-
 }

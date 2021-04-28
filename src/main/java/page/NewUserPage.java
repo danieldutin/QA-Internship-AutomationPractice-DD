@@ -101,12 +101,6 @@ public class NewUserPage {
         driver.findElement(exactState).click();
     }
 
-    /*public void selectCountryDropDown() {
-
-        driver.findElement(countryDropDown).click();
-        driver.findElement(exactCountry).click();
-    }*/
-
     public void setMobileP(String mobile) {
 
         driver.findElement(mobileP).sendKeys(mobile);
@@ -117,5 +111,11 @@ public class NewUserPage {
         driver.findElement(regButton).click();
         return new AccountPage(driver);
     }
+
+     /*public void selectCountryDropDown() {
+
+        driver.findElement(countryDropDown).click();
+        driver.findElement(exactCountry).click();
+    }*/
 
 }

@@ -40,22 +40,22 @@ public class ShoppingCartPage {
         driver.findElement(submitButton).click();
     }
 
-    public void clickOnCheckBox(){
+    public void clickOnCheckBox() {
 
         driver.findElement(checkBox).click();
     }
 
-    public void clickPayByWire(){
+    public void clickPayByWire() {
 
         driver.findElement(payByWire).click();
     }
 
-    public void clickConfirm(){
+    public void clickConfirm() {
 
         driver.findElement(confirmOrder).click();
     }
 
-    public String getAlertText(){
+    public String getAlertText() {
 
         return driver.findElement(orderCompleate).getText();
     }

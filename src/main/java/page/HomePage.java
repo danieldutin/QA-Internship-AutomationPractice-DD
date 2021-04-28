@@ -26,11 +26,10 @@ public class HomePage {
         return new CreateAccountPage(driver);
     }
 
-    public WomanPage clickWomanButton(){
+    public WomanPage clickWomanButton() {
 
         driver.findElement(womanButton).click();
         return new WomanPage(driver);
     }
-
 
 }

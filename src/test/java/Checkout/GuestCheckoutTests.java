@@ -35,9 +35,9 @@ public class GuestCheckoutTests extends BaseTests {
 
         WomanPage womanPage = homePage.clickWomanButton();
 
-        ProductDetailPage  productDetailPage = womanPage.clickOnProduct();
+        ProductDetailPage productDetailPage = womanPage.clickOnProduct();
 
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         ShoppingCartPage shoppingCart = productDetailPage.clickAddToCartBtn();
 

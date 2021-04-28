@@ -7,12 +7,13 @@ public class AccountPage {
 
     private WebDriver driver;
     private By welcomeMessage = By.id("center_column");
-    public AccountPage(WebDriver driver){
+
+    public AccountPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public String getAlertText(){
+    public String getAlertText() {
 
-       return driver.findElement(welcomeMessage).getText();
+        return driver.findElement(welcomeMessage).getText();
     }
 }
