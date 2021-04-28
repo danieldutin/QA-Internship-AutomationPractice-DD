@@ -1,6 +1,6 @@
 package ProductDisplayPage;
 
-import Payment.ShoppingCartPage;
+import Payment.CheckoutPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,10 +14,10 @@ public class ProductDetailPage {
         this.driver = driver;
     }
 
-    public ShoppingCartPage clickAddToCartBtn() {
+    public CheckoutPage clickAddToCartBtn() {
 
         driver.findElement(addToCartBtn).click();
-        return new ShoppingCartPage(driver);
+        return new CheckoutPage(driver);
     }
 
 }

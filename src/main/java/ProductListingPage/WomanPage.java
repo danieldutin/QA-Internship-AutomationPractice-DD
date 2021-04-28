@@ -1,19 +1,18 @@
 package ProductListingPage;
 
-import Payment.ShoppingCartPage;
 import ProductDisplayPage.ProductDetailPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WomanPage {
 
     private WebDriver driver;
 
     //private By proceedToCheckout = By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span");
-    private By buttonContainer = By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[1]/div/a[1]/img");
+    private By selectItemButton = By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/h5/a");
 
     public WomanPage(WebDriver driver) {
 
@@ -22,7 +21,7 @@ public class WomanPage {
 
     public ProductDetailPage clickOnProduct() {
 
-        driver.findElement(buttonContainer).click();
+        driver.findElement(selectItemButton).click();
         return new ProductDetailPage(driver);
     }
 

@@ -1,21 +1,12 @@
 package Checkout;
 
-import Payment.ShoppingCartPage;
+import Payment.CheckoutPage;
 import ProductDisplayPage.ProductDetailPage;
 import ProductListingPage.WomanPage;
 import base.BaseTests;
 import helper.ConfigFileReader;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import page.CreateAccountPage;
 import page.HomePage;
-import page.NewUserPage;
-
-import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertTrue;
 
@@ -31,27 +22,26 @@ public class GuestCheckoutTests extends BaseTests {
         String email = reader.getProperty("loginEmail");
         String pass = reader.getProperty("pass");
         String expectedResult = reader.getProperty("orderComplete");
-        By addToCartBtn = By.xpath("//*[@id=\"add_to_cart\"]/button");
 
         WomanPage womanPage = homePage.clickWomanButton();
 
-        ProductDetailPage productDetailPage = womanPage.clickOnProduct();
+        ProductDetailPage  productDetailPage = womanPage.clickOnProduct();
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        CheckoutPage checkoutPage = productDetailPage.clickAddToCartBtn();
+        checkoutPage.waitForLoad(driver);
+        Thread.sleep(2000);
+        checkoutPage.proceedToCheckout();
+        checkoutPage.summaryProceed();
+        checkoutPage.setEmailField(email);
+        checkoutPage.setPasswordField(pass);
+        checkoutPage.clickOnSignIn();
+        checkoutPage.addressProceed();
+        checkoutPage.clickOnCheckBox();
+        checkoutPage.shippingProceed();
+        checkoutPage.clickPayByWire();
+        checkoutPage.clickConfirm();
 
-        ShoppingCartPage shoppingCart = productDetailPage.clickAddToCartBtn();
-
-        shoppingCart.clickOnProceedBtn();
-        shoppingCart.clickOnProceedBtn();
-        shoppingCart.setEmailField(email);
-        shoppingCart.setPasswordField(pass);
-        shoppingCart.clickOnSignIn();
-        shoppingCart.clickOnCheckBox();
-        shoppingCart.clickOnProceedBtn();
-        shoppingCart.clickPayByWire();
-        shoppingCart.clickConfirm();
-
-        String actualResult = shoppingCart.getAlertText();
+        String actualResult = checkoutPage.getAlertText();
 
         assertTrue(actualResult.contains(expectedResult), "Invalid operation");
 
