@@ -1,15 +1,13 @@
 package page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import java.util.Collection;
+import static Locators.Locators.*;
 
 public class CreateAccountPage {
 
     private WebDriver driver;
-    private By newEmail = By.id("email_create");
-    private By createButton = By.id("SubmitCreate");
+    //private By newEmail = By.id("email_create");
+    //private By createButton = By.id("SubmitCreate");
 
     public CreateAccountPage(WebDriver driver) {
         this.driver = driver;
@@ -17,12 +15,12 @@ public class CreateAccountPage {
 
     public void setEmailField(String email) {
 
-        driver.findElement(newEmail).sendKeys(email);
+        driver.findElement(NEW_EMAIL).sendKeys(email);
     }
 
     public NewUserPage clickCreateButton() {
 
-        driver.findElement(createButton).click();
+        driver.findElement(CREATE_BUTTON).click();
         return new NewUserPage(driver);
     }
 

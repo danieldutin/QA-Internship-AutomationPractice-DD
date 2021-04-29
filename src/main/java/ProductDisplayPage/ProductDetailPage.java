@@ -1,13 +1,14 @@
 package ProductDisplayPage;
 
 import Payment.CheckoutPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import static Locators.Locators.*;
 
 public class ProductDetailPage {
 
     private WebDriver driver;
-    private By addToCartBtn = By.xpath("//*[@id=\"add_to_cart\"]/button");
+    //private By addToCartBtn = By.xpath("//*[@id=\"add_to_cart\"]/button");
 
     public ProductDetailPage(WebDriver driver) {
 
@@ -16,7 +17,7 @@ public class ProductDetailPage {
 
     public CheckoutPage clickAddToCartBtn() {
 
-        driver.findElement(addToCartBtn).click();
+        driver.findElement(ADD_TO_CART_BTN).click();
         return new CheckoutPage(driver);
     }
 

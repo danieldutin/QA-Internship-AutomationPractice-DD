@@ -1,14 +1,14 @@
 package page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import static Locators.Locators.*;
 
 public class LoginPage {
 
     private WebDriver driver;
-    private By emailField = By.id("email");
-    private By passwordField = By.id("passwd");
-    private By submitButton = By.id("SubmitLogin");
+    //private By emailField = By.id("email");
+    //private By passwordField = By.id("passwd");
+    //private By submitButton = By.id("SubmitLogin");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -16,17 +16,17 @@ public class LoginPage {
 
     public void setEmailField(String email) {
 
-        driver.findElement(emailField).sendKeys(email);
+        driver.findElement(EMAIL_FIELD).sendKeys(email);
     }
 
     public void setPasswordField(String pass) {
 
-        driver.findElement(passwordField).sendKeys(pass);
+        driver.findElement(PASSWORD_FIELD).sendKeys(pass);
     }
 
     public AccountPage clickSignUpButton() {
 
-        driver.findElement(submitButton).click();
+        driver.findElement(SUBMIT_BUTTON).click();
         return new AccountPage(driver);
     }
 

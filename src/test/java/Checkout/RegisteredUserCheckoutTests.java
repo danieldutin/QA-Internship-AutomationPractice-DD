@@ -27,7 +27,7 @@ public class RegisteredUserCheckoutTests extends BaseTests {
         LoginPage loginPage = homePage.clickSignUpButtonLogIn();
         loginPage.setEmailField(email);
         loginPage.setPasswordField(pass);
-        AccountPage accountPage = loginPage.clickSignUpButton();
+        loginPage.clickSignUpButton();
 
         String expectedResult = reader.getProperty("orderComplete");
 

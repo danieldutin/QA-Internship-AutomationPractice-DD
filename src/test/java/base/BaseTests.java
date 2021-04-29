@@ -53,6 +53,6 @@ public class BaseTests {
     @AfterMethod
     public void closingDown() {
 
-        //this.driver.quit();
+        this.driver.quit();
     }
 }
