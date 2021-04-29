@@ -52,7 +52,8 @@ public class Locators {
     public static final By ADD_TO_CART_BTN = By.xpath("//*[@id=\"add_to_cart\"]/button");
     //for the CartPage
     public static final By CLOSE_POP_UP_BTN = By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[1]/span");
-    public static final By GO_TO_CART = By.xpath("//*[@id=\"header\"]/div[3]/div/div/div[3]/div/a/b");
+    public static final By GO_TO_CART = By.xpath("//*[@id=\"header\"]/div[3]/div/div/div[3]/div/a/span[2]");
+    public static final By PRODUCT_IN_CART = By.xpath("//*[@id=\"product_1_1_0_490141\"]/td[2]/p/a");
     //for the WomanPage
     public static final By SELECT_ITEM_BUTTON = By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/h5/a");
 }

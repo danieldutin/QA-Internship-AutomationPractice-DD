@@ -4,12 +4,15 @@ import base.BaseTests;
 import com.beust.jcommander.IStringConverter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import page.AccountPage;
 import page.CreateAccountPage;
 import page.HomePage;
 import page.NewUserPage;
 import helper.ConfigFileReader;
+
+import java.util.Random;
 
 import static org.testng.Assert.assertTrue;
 
@@ -18,11 +21,12 @@ public class CreateAccTests extends BaseTests {
     ConfigFileReader reader = new ConfigFileReader();
 
     @Test
-    public void validEmailTest() throws Exception {
+    @Parameters("browser")
+    public void validEmailTest(String browser) throws Exception {
 
-        HomePage homePage = new HomePage(startWebDriver());
+        HomePage homePage = new HomePage(startWebDriver(browser));
 
-        String email = reader.getProperty("emailCreate");
+        String email = getRandomEmail() + "@email.com" ;
         String authentication = reader.getProperty("authentication");
 
         CreateAccountPage createAccountPage = homePage.clickSignUpButtonCreate();
@@ -35,12 +39,12 @@ public class CreateAccTests extends BaseTests {
     }
 
     @Test
-    public void accountCreatedTest() throws Exception {
+    @Parameters("browser")
+    public void accountCreatedTest(String browser) throws Exception {
 
-        HomePage homePage = new HomePage(startWebDriver());
+        HomePage homePage = new HomePage(startWebDriver(browser));
 
-        String email = reader.getProperty("newEmail");
-        //String authentication = reader.getProperty("authentication");
+        String email = getRandomEmail() + "@email.com";
         String title = reader.getProperty("title");
         String firstName = reader.getProperty("firstName");
         String lastName = reader.getProperty("lastName");
@@ -74,6 +78,18 @@ public class CreateAccTests extends BaseTests {
 
         assertTrue(myAccountText.contains(welcome), "Incorrect data");
 
+    }
+
+    protected String getRandomEmail() {
+        String charsRange = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder randomiser = new StringBuilder();
+        Random rnd = new Random();
+        while (randomiser.length() < 10) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * charsRange.length());
+            randomiser.append(charsRange.charAt(index));
+        }
+        String emailLocalPart = randomiser.toString();
+        return emailLocalPart;
     }
 
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Parameters;
 import page.HomePage;
 import java.util.concurrent.TimeUnit;
 
@@ -16,10 +17,12 @@ public class BaseTests {
     public WebDriver driver;
     protected HomePage homePage;
 
-    public WebDriver startWebDriver() throws Exception {
 
+    public WebDriver startWebDriver(String browser) throws Exception {
+
+        ConfigFileReader reader = new ConfigFileReader();
         ConfigFileReader fileReader = new ConfigFileReader();
-        String browser = fileReader.getDriverType();
+        //String browser = fileReader.getDriverType();
         String url = fileReader.getApplicationUrl();
         switch (browser) {
 

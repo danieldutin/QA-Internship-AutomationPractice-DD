@@ -2,6 +2,7 @@ package Login;
 
 import base.BaseTests;
 import helper.ConfigFileReader;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import page.AccountPage;
 import page.HomePage;
@@ -16,9 +17,10 @@ public class LogInTests extends BaseTests {
 
 
     @Test
-    public void testSuccessfulLogin() throws Exception {
+    @Parameters("browser")
+    public void testSuccessfulLogin(String browser) throws Exception {
 
-        HomePage homePage = new HomePage(startWebDriver());
+        HomePage homePage = new HomePage(startWebDriver(browser));
 
         ConfigFileReader reader = new ConfigFileReader();
         String email = reader.getProperty("loginEmail");

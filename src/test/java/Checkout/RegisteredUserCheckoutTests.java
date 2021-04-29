@@ -5,6 +5,7 @@ import ProductDisplayPage.ProductDetailPage;
 import ProductListingPage.WomanPage;
 import base.BaseTests;
 import helper.ConfigFileReader;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import page.AccountPage;
 import page.HomePage;
@@ -16,9 +17,10 @@ public class RegisteredUserCheckoutTests extends BaseTests {
     ConfigFileReader reader = new ConfigFileReader();
 
     @Test
-    public void addProductToCart() throws Exception {
+    @Parameters("browser")
+    public void addProductToCart(String browser) throws Exception {
 
-        HomePage homePage = new HomePage(startWebDriver());
+        HomePage homePage = new HomePage(startWebDriver(browser));
 
         ConfigFileReader reader = new ConfigFileReader();
         String email = reader.getProperty("loginEmail");
