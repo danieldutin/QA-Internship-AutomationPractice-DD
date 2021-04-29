@@ -1,14 +1,12 @@
 package page;
 
 import org.openqa.selenium.WebDriver;
+
 import static Locators.Locators.*;
 
 public class LoginPage {
 
     private WebDriver driver;
-    //private By emailField = By.id("email");
-    //private By passwordField = By.id("passwd");
-    //private By submitButton = By.id("SubmitLogin");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -31,3 +29,8 @@ public class LoginPage {
     }
 
 }
+
+
+//private By emailField = By.id("email");
+//private By passwordField = By.id("passwd");
+//private By submitButton = By.id("SubmitLogin");

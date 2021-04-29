@@ -2,13 +2,12 @@ package page;
 
 import ProductListingPage.WomanPage;
 import org.openqa.selenium.WebDriver;
+
 import static Locators.Locators.*;
 
 public class HomePage {
 
     public WebDriver driver;
-    //private By signUpButton = By.linkText("Sign in");
-    //private By womanButton = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]/a");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -32,9 +31,12 @@ public class HomePage {
         return new WomanPage(driver);
     }
 
-    public void closePopUpBtn(){
+    public void closePopUpBtn() {
 
         driver.findElement(CLOSE_POP_UP_BTN).click();
     }
 
 }
+
+//private By signUpButton = By.linkText("Sign in");
+//private By womanButton = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]/a");

@@ -5,23 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static Locators.Locators.*;
 
 public class CheckoutPage {
 
     private WebDriver driver;
-    /*private By proceedToCheckout = By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a");
-    private By summaryProceed = By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span");
-    private By addressProceed = By.xpath("//*[@id=\"center_column\"]/form/p/button/span");
-    private By shippingProceed = By.xpath("//*[@id=\"form\"]/p/button/span");
-    private By emailField = By.id("email");
-    private By passwordField = By.id("passwd");
-    private By submitButton = By.id("SubmitLogin");
-    private By checkBox = By.id("cgv");
-    private By payByWire = By.xpath("//*[@id=\"HOOK_PAYMENT\"]/div[1]/div/p/a");
-    private By confirmOrder = By.xpath("//*[@id=\"cart_navigation\"]/button/span");
-    private By orderComplete = By.xpath("//*[@id=\"center_column\"]/div/p/strong");*/
-
 
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
@@ -111,3 +100,15 @@ public class CheckoutPage {
     }
 
 }
+
+   /*private By proceedToCheckout = By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a");
+    private By summaryProceed = By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span");
+    private By addressProceed = By.xpath("//*[@id=\"center_column\"]/form/p/button/span");
+    private By shippingProceed = By.xpath("//*[@id=\"form\"]/p/button/span");
+    private By emailField = By.id("email");
+    private By passwordField = By.id("passwd");
+    private By submitButton = By.id("SubmitLogin");
+    private By checkBox = By.id("cgv");
+    private By payByWire = By.xpath("//*[@id=\"HOOK_PAYMENT\"]/div[1]/div/p/a");
+    private By confirmOrder = By.xpath("//*[@id=\"cart_navigation\"]/button/span");
+    private By orderComplete = By.xpath("//*[@id=\"center_column\"]/div/p/strong");*/

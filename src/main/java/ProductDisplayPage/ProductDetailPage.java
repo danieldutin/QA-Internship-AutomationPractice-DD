@@ -8,7 +8,6 @@ import static Locators.Locators.*;
 public class ProductDetailPage {
 
     private WebDriver driver;
-    //private By addToCartBtn = By.xpath("//*[@id=\"add_to_cart\"]/button");
 
     public ProductDetailPage(WebDriver driver) {
 
@@ -22,3 +21,5 @@ public class ProductDetailPage {
     }
 
 }
+
+//private By addToCartBtn = By.xpath("//*[@id=\"add_to_cart\"]/button");
