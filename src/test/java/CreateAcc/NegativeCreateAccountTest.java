@@ -30,6 +30,7 @@ public class NegativeCreateAccountTest extends BaseTests {
         CreateAccountPage createAccountPage = homePage.clickSignUpButtonCreate();
         createAccountPage.setEmailField(email);
         createAccountPage.clickCreateButton();
+        Thread.sleep(2000);
 
         String actualContent = createAccountPage.getAlertTextInvalidEmail();
         assertTrue(actualContent.contains(errorMessage));
@@ -50,7 +51,7 @@ public class NegativeCreateAccountTest extends BaseTests {
         String cityInput = reader.getProperty("cityInput");
         String zipCode = reader.getProperty("zipCode");
         String mobileP = reader.getProperty("mobileP");
-        String welcome = reader.getProperty("welcome");
+        String errorMessage = reader.getProperty("invalidEmailMessage");
 
         CreateAccountPage createAccountPage = homePage.clickSignUpButtonCreate();
         createAccountPage.setEmailField(email);
@@ -67,12 +68,13 @@ public class NegativeCreateAccountTest extends BaseTests {
         newUserPage.selectStateDropDown();
         newUserPage.setZipCode(zipCode);
         newUserPage.setMobileP(mobileP);
+        Thread.sleep(2000);
 
         AccountPage accountPage = newUserPage.clickRegButton();
 
         String errorText = accountPage.getAlertText();
 
-        assertTrue(errorText.contains(welcome), "Incorrect data");
+        assertTrue(errorText.contains(errorMessage), "Incorrect data");
 
     }
 

@@ -2,6 +2,7 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class NewUserPage {
 
@@ -13,15 +14,15 @@ public class NewUserPage {
     private By lastName = By.id("customer_lastname");
     private By passWord = By.id("passwd");
     private By dayDropDown = By.id("days");
-    private By exactDay = By.xpath("//*[@id=\"days\"]/option[2]");
+    private By exactDay = By.cssSelector("select#days.form-control option[value=\"1\"]");
     private By monthDropDown = By.id("months");
-    private By exactMonth = By.xpath("//*[@id=\"months\"]/option[2]");
+    private By exactMonth = By.cssSelector("select#months.form-control option[value=\"1\"]");
     private By yearDropDown = By.id("years");
-    private By exactYear = By.xpath("//*[@id=\"years\"]/option[21]");
+    private By exactYear = By.cssSelector("select#years.form-control option[value=\"1991\"]");
     private By addressLineOne = By.id("address1");
     private By cityInput = By.id("city");
     private By stateDropDown = By.id("id_state");
-    private By exactState = By.xpath("//*[@id=\"id_state\"]/option[4]");
+    private By exactState = By.cssSelector("select#id_state.form-control option[value=\"1\"]");
     private By zipCode = By.id("postcode");
     private By mobilePhone = By.id("phone_mobile");
     private By regButton = By.id("submitAccount");

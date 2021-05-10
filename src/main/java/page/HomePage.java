@@ -8,7 +8,7 @@ public class HomePage {
 
     public WebDriver driver;
     public By signUpButton = By.linkText("Sign in");
-    public By WOMAN_BUTTON = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]/a");
+    public By womanButton = By.cssSelector("div.col-lg-12 a");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -28,7 +28,7 @@ public class HomePage {
 
     public WomanPage clickWomanButton() {
 
-        driver.findElement(WOMAN_BUTTON).click();
+        driver.findElement(womanButton).click();
         return new WomanPage(driver);
     }
 

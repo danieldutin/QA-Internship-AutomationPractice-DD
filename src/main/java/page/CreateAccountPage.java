@@ -8,7 +8,7 @@ public class CreateAccountPage {
     private WebDriver driver;
     private By newEmail = By.id("email_create");
     private By createButton = By.id("SubmitCreate");
-    private By errMsgCreateAccInvalidEmail = By.xpath("//*[@id=\"create_account_error\"]/ol/li");
+    private By errMsgCreateAccInvalidEmail = By.id("create_account_error");
 
     public CreateAccountPage(WebDriver driver) {
         this.driver = driver;

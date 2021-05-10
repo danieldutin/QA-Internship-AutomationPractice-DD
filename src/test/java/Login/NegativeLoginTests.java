@@ -27,6 +27,7 @@ public class NegativeLoginTests extends BaseTests {
         loginPage.setEmailField(email);
         loginPage.setPasswordField(pass);
         loginPage.clickSignUpButton();
+        Thread.sleep(2000);
         String error = loginPage.getAlertTextInvalidLogin();
 
         assertTrue(error.contains(errorMessage));

@@ -9,7 +9,7 @@ public class LoginPage {
     private By emailField = By.id("email");
     private By passwordField = By.id("passwd");
     private By submitButton = By.id("SubmitLogin");
-    private By errMsgInvalidEmail = By.xpath("//*[@id=\"center_column\"]/div[1]/ol/li");
+    private By errMsgInvalidEmail = By.cssSelector("div.alert-danger p");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
