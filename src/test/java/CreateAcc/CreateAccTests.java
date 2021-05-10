@@ -80,16 +80,4 @@ public class CreateAccTests extends BaseTests {
 
     }
 
-    protected String getRandomEmail() {
-        String charsRange = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        StringBuilder randomiser = new StringBuilder();
-        Random rnd = new Random();
-        while (randomiser.length() < 10) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * charsRange.length());
-            randomiser.append(charsRange.charAt(index));
-        }
-        String emailLocalPart = randomiser.toString();
-        return emailLocalPart;
-    }
-
 }

@@ -1,12 +1,15 @@
 package page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import static Locators.Locators.*;
 
 public class LoginPage {
 
     private WebDriver driver;
+    private By emailField = By.id("email");
+    private By passwordField = By.id("passwd");
+    private By submitButton = By.id("SubmitLogin");
+    private By errMsgInvalidEmail = By.xpath("//*[@id=\"center_column\"]/div[1]/ol/li");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -14,23 +17,23 @@ public class LoginPage {
 
     public void setEmailField(String email) {
 
-        driver.findElement(EMAIL_FIELD).sendKeys(email);
+        driver.findElement(emailField).sendKeys(email);
     }
 
     public void setPasswordField(String pass) {
 
-        driver.findElement(PASSWORD_FIELD).sendKeys(pass);
+        driver.findElement(passwordField).sendKeys(pass);
     }
 
     public AccountPage clickSignUpButton() {
 
-        driver.findElement(SUBMIT_BUTTON).click();
+        driver.findElement(submitButton).click();
         return new AccountPage(driver);
     }
 
     public String getAlertTextInvalidLogin() {
 
-        return driver.findElement(ERROR_MESSAGE_INVALID_EMAIL).getText();
+        return driver.findElement(errMsgInvalidEmail).getText();
     }
 
 }

@@ -1,63 +1,68 @@
 package Payment;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static Locators.Locators.*;
-
 public class CheckoutPage {
 
     private WebDriver driver;
+    private By proceedToCheckout = By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a");
+    private By summaryProceed = By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span");
+    private By addressProceed = By.xpath("//*[@id=\"center_column\"]/form/p/button/span");
+    private By shippingProceed = By.xpath("//*[@id=\"form\"]/p/button/span");
+    private By emailFieldCheckout = By.id("email");
+    private By passwordFieldCheckout = By.id("passwd");
+    private By submitButtonCheckout = By.id("SubmitLogin");
+    private By checkBox = By.id("cgv");
+    private By payByWire = By.xpath("//*[@id=\"HOOK_PAYMENT\"]/div[1]/div/p/a");
+    private By confirmOrder = By.xpath("//*[@id=\"cart_navigation\"]/button/span");
+    private By orderComplete = By.xpath("//*[@id=\"center_column\"]/div/p/strong");
 
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void clickOnProceedBtn() {
-
-        driver.findElement(PROCEED_TO_CHECKOUT).click();
-    }
-
     public void setEmailField(String email) {
 
-        driver.findElement(EMAIL_FIELD_CHECKOUT).sendKeys(email);
+        driver.findElement(emailFieldCheckout).sendKeys(email);
     }
 
     public void setPasswordField(String pass) {
 
-        driver.findElement(PASSWORD_FIELD_CHECKOUT).sendKeys(pass);
+        driver.findElement(passwordFieldCheckout).sendKeys(pass);
     }
 
     public void clickOnSignIn() {
 
-        driver.findElement(SUBMIT_BUTTON_CHECKOUT).click();
+        driver.findElement(submitButtonCheckout).click();
     }
 
     public void clickOnCheckBox() {
 
-        driver.findElement(CHECK_BOX).click();
+        driver.findElement(checkBox).click();
     }
 
     public void clickPayByWire() {
 
-        driver.findElement(PAY_BY_WIRE).click();
+        driver.findElement(payByWire).click();
     }
 
     public void clickConfirm() {
 
-        driver.findElement(CONFIRM_ORDER).click();
+        driver.findElement(confirmOrder).click();
     }
 
     public String getAlertText() {
 
-        return driver.findElement(ORDER_COMPLETE).getText();
+        return driver.findElement(orderComplete).getText();
     }
 
     public void summaryProceed() {
-        WebElement element = driver.findElement(SUMMARY_PROCEED);
+        WebElement element = driver.findElement(summaryProceed);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
         jse.executeScript("arguments[0].click();", element);
@@ -65,7 +70,7 @@ public class CheckoutPage {
     }
 
     public void addressProceed() {
-        WebElement element = driver.findElement(ADDRESS_PROCEED);
+        WebElement element = driver.findElement(addressProceed);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
         jse.executeScript("arguments[0].click();", element);
@@ -73,7 +78,7 @@ public class CheckoutPage {
     }
 
     public void shippingProceed() {
-        WebElement element = driver.findElement(SHIPPING_PROCEED);
+        WebElement element = driver.findElement(shippingProceed);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
         jse.executeScript("arguments[0].click();", element);
@@ -81,7 +86,7 @@ public class CheckoutPage {
     }
 
     public void proceedToCheckout() {
-        WebElement element = driver.findElement(PROCEED_TO_CHECKOUT);
+        WebElement element = driver.findElement(proceedToCheckout);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
         jse.executeScript("arguments[0].click();", element);
@@ -100,15 +105,3 @@ public class CheckoutPage {
     }
 
 }
-
-   /*private By proceedToCheckout = By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a");
-    private By summaryProceed = By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span");
-    private By addressProceed = By.xpath("//*[@id=\"center_column\"]/form/p/button/span");
-    private By shippingProceed = By.xpath("//*[@id=\"form\"]/p/button/span");
-    private By emailField = By.id("email");
-    private By passwordField = By.id("passwd");
-    private By submitButton = By.id("SubmitLogin");
-    private By checkBox = By.id("cgv");
-    private By payByWire = By.xpath("//*[@id=\"HOOK_PAYMENT\"]/div[1]/div/p/a");
-    private By confirmOrder = By.xpath("//*[@id=\"cart_navigation\"]/button/span");
-    private By orderComplete = By.xpath("//*[@id=\"center_column\"]/div/p/strong");*/

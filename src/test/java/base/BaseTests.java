@@ -10,6 +10,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Parameters;
 import page.HomePage;
+
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTests {
@@ -51,6 +53,18 @@ public class BaseTests {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
+    }
+
+    public String getRandomEmail() {
+        String charsRange = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder randomiser = new StringBuilder();
+        Random rnd = new Random();
+        while (randomiser.length() < 10) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * charsRange.length());
+            randomiser.append(charsRange.charAt(index));
+        }
+        String emailLocalPart = randomiser.toString();
+        return emailLocalPart;
     }
 
     @AfterMethod

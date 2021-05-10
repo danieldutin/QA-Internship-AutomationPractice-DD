@@ -1,12 +1,14 @@
 package page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import static Locators.Locators.*;
 
 public class CreateAccountPage {
 
     private WebDriver driver;
+    private By newEmail = By.id("email_create");
+    private By createButton = By.id("SubmitCreate");
+    private By errMsgCreateAccInvalidEmail = By.xpath("//*[@id=\"create_account_error\"]/ol/li");
 
     public CreateAccountPage(WebDriver driver) {
         this.driver = driver;
@@ -14,18 +16,18 @@ public class CreateAccountPage {
 
     public void setEmailField(String email) {
 
-        driver.findElement(NEW_EMAIL).sendKeys(email);
+        driver.findElement(newEmail).sendKeys(email);
     }
 
     public NewUserPage clickCreateButton() {
 
-        driver.findElement(CREATE_BUTTON).click();
+        driver.findElement(createButton).click();
         return new NewUserPage(driver);
     }
 
     public String getAlertTextInvalidEmail() {
 
-        return driver.findElement(ERROR_MESSAGE_CREATE_ACC_INVALID_EMAIL).getText();
+        return driver.findElement(errMsgCreateAccInvalidEmail).getText();
     }
 
 }
