@@ -4,8 +4,6 @@ import ProductListingPage.WomanPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static Locators.Locators.*;
-
 public class HomePage {
 
     public WebDriver driver;
@@ -34,13 +32,4 @@ public class HomePage {
         return new WomanPage(driver);
     }
 
-    public void closePopUpBtn() {
-
-        driver.findElement(CLOSE_POP_UP_BTN).click();
-    }
-
-
 }
-
-//private By signUpButton = By.linkText("Sign in");
-//private By womanButton = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]/a");
