@@ -8,9 +8,7 @@ import page.AccountPage;
 import page.HomePage;
 import page.LoginPage;
 
-import java.io.FileInputStream;
-import java.util.Properties;
-
+import static Constants.ConfigFileConstants.*;
 import static org.testng.Assert.*;
 
 public class LogInTests extends BaseTests {
@@ -23,17 +21,14 @@ public class LogInTests extends BaseTests {
         HomePage homePage = new HomePage(startWebDriver(browser));
 
         ConfigFileReader reader = new ConfigFileReader();
-        String email = reader.getProperty("loginEmail");
-        String pass = reader.getProperty("pass");
-        String welcome = reader.getProperty("welcome");
 
         LoginPage loginPage = homePage.clickSignUpButtonLogIn();
-        loginPage.setEmailField(email);
-        loginPage.setPasswordField(pass);
+        loginPage.setEmailField(reader.getProperty(loginEmail));
+        loginPage.setPasswordField(reader.getProperty(pass));
         AccountPage accountPage = loginPage.clickSignUpButton();
         String myAccountText = accountPage.getAlertText();
 
-        assertTrue(myAccountText.contains(welcome), "Incorrect data");
+        assertTrue(myAccountText.contains(reader.getProperty(confirmed)), "Incorrect data");
 
     }
 }

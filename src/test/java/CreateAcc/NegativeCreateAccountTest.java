@@ -8,10 +8,7 @@ import page.AccountPage;
 import page.CreateAccountPage;
 import page.HomePage;
 import page.NewUserPage;
-
-
-import java.util.Random;
-
+import static Constants.ConfigFileConstants.*;
 import static org.testng.Assert.assertTrue;
 
 public class NegativeCreateAccountTest extends BaseTests {
@@ -43,39 +40,27 @@ public class NegativeCreateAccountTest extends BaseTests {
 
         HomePage homePage = new HomePage(startWebDriver(browser));
 
-        String email = getRandomEmail() + "@email.com";
-        String firstName = reader.getProperty("firstName");
-        String lastName = reader.getProperty("lastName");
-        String passWord = reader.getProperty("passWord");
-        String addressLineOne = reader.getProperty("addressLineOne");
-        String cityInput = reader.getProperty("cityInput");
-        String zipCode = reader.getProperty("zipCode");
-        String mobileP = reader.getProperty("mobileP");
-        String errorMessage = reader.getProperty("invalidEmailMessage");
-
         CreateAccountPage createAccountPage = homePage.clickSignUpButtonCreate();
-        createAccountPage.setEmailField(email);
+        createAccountPage.setEmailField(getRandomEmail() + "@email.com");
         NewUserPage newUserPage = createAccountPage.clickCreateButton();
 
-        newUserPage.setFirstName(firstName);
-        newUserPage.setLastName(lastName);
-        newUserPage.setPassword(passWord);
+        newUserPage.setFirstName(reader.getProperty(name));
+        newUserPage.setLastName(reader.getProperty(surName));
+        newUserPage.setPassword(reader.getProperty(passWord));
         newUserPage.selectDayDropDown();
         newUserPage.selectMonthDropDown();
         newUserPage.selectYearDropDown();
-        newUserPage.setAddressLineOne(addressLineOne);
-        newUserPage.setCity(cityInput);
+        newUserPage.setAddressLineOne(reader.getProperty(lineOne));
+        newUserPage.setCity(reader.getProperty(city));
         newUserPage.selectStateDropDown();
-        newUserPage.setZipCode(zipCode);
-        newUserPage.setMobileP(mobileP);
+        newUserPage.setZipCode(reader.getProperty(zip));
+        newUserPage.setMobileP(reader.getProperty(mobile));
         Thread.sleep(2000);
 
         AccountPage accountPage = newUserPage.clickRegButton();
 
         String errorText = accountPage.getAlertText();
 
-        assertTrue(errorText.contains(errorMessage), "Incorrect data");
-
+        assertTrue(errorText.contains(reader.getProperty(invalidEmailMessage)), "Incorrect data");
     }
-
 }

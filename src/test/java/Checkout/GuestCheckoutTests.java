@@ -1,7 +1,7 @@
 package Checkout;
 
 import Payment.CheckoutPage;
-import ProductDisplayPage.ProductDetailPage;
+import ProductDetailPage.ProductDetailPage;
 import ProductListingPage.WomanPage;
 import base.BaseTests;
 import helper.ConfigFileReader;
@@ -9,6 +9,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import page.HomePage;
 
+import static Constants.ConfigFileConstants.*;
 import static org.testng.Assert.assertTrue;
 
 public class GuestCheckoutTests extends BaseTests {
@@ -21,21 +22,17 @@ public class GuestCheckoutTests extends BaseTests {
 
         HomePage homePage = new HomePage(startWebDriver(browser));
 
-        String email = reader.getProperty("loginEmail");
-        String pass = reader.getProperty("pass");
-        String expectedResult = reader.getProperty("orderComplete");
-
         WomanPage womanPage = homePage.clickWomanButton();
 
-        ProductDetailPage  productDetailPage = womanPage.clickOnProduct();
+        ProductDetailPage productDetailPage = womanPage.clickOnProduct();
 
         CheckoutPage checkoutPage = productDetailPage.clickAddToCartBtn();
         checkoutPage.waitForLoad(driver);
         Thread.sleep(2000);
         checkoutPage.proceedToCheckout();
         checkoutPage.summaryProceed();
-        checkoutPage.setEmailField(email);
-        checkoutPage.setPasswordField(pass);
+        checkoutPage.setEmailField(reader.getProperty(loginEmail));
+        checkoutPage.setPasswordField(reader.getProperty(pass));
         checkoutPage.clickOnSignIn();
         checkoutPage.addressProceed();
         checkoutPage.clickOnCheckBox();
@@ -45,7 +42,7 @@ public class GuestCheckoutTests extends BaseTests {
 
         String actualResult = checkoutPage.getAlertText();
 
-        assertTrue(actualResult.contains(expectedResult), "Invalid operation");
+        assertTrue(actualResult.contains(reader.getProperty(orderComplete)), "Invalid operation");
 
     }
 }

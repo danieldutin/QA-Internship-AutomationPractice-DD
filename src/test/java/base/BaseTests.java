@@ -6,11 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Parameters;
 import page.HomePage;
-
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -19,12 +16,9 @@ public class BaseTests {
     public WebDriver driver;
     protected HomePage homePage;
 
-
     public WebDriver startWebDriver(String browser) throws Exception {
 
-        ConfigFileReader reader = new ConfigFileReader();
         ConfigFileReader fileReader = new ConfigFileReader();
-        //String browser = fileReader.getDriverType();
         String url = fileReader.getApplicationUrl();
         switch (browser) {
 
@@ -46,6 +40,7 @@ public class BaseTests {
                 throw new IllegalStateException("Error" + browser);
 
         }
+
         driver.get(url);
 
         homePage = new HomePage(driver);
@@ -57,13 +52,14 @@ public class BaseTests {
 
     public String getRandomEmail() {
         String charsRange = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        StringBuilder randomiser = new StringBuilder();
+        StringBuilder randomizer = new StringBuilder();
         Random rnd = new Random();
-        while (randomiser.length() < 10) { // length of the random string.
+        while (randomizer.length() < 10) { // length of the random string.
             int index = (int) (rnd.nextFloat() * charsRange.length());
-            randomiser.append(charsRange.charAt(index));
+            randomizer.append(charsRange.charAt(index));
         }
-        String emailLocalPart = randomiser.toString();
+
+        String emailLocalPart = randomizer.toString();
         return emailLocalPart;
     }
 

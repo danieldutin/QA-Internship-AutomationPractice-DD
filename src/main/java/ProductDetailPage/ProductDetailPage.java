@@ -1,4 +1,4 @@
-package ProductDisplayPage;
+package ProductDetailPage;
 
 import Payment.CheckoutPage;
 import org.openqa.selenium.By;
@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class ProductDetailPage {
 
     private WebDriver driver;
-    private By addToCartBtn = By.xpath("//*[@id=\"add_to_cart\"]/button");
+    private By addToCartBtn = By.cssSelector("div.box-cart-bottom button");
 
     public ProductDetailPage(WebDriver driver) {
 

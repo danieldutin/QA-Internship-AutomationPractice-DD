@@ -37,8 +37,3 @@ public class LoginPage {
     }
 
 }
-
-
-//private By emailField = By.id("email");
-//private By passwordField = By.id("passwd");
-//private By submitButton = By.id("SubmitLogin");

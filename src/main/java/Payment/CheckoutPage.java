@@ -10,17 +10,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CheckoutPage {
 
     private WebDriver driver;
-    private By proceedToCheckout = By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a");
-    private By summaryProceed = By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span");
-    private By addressProceed = By.xpath("//*[@id=\"center_column\"]/form/p/button/span");
-    private By shippingProceed = By.xpath("//*[@id=\"form\"]/p/button/span");
+    private By proceedToCheckout = By.cssSelector("div.button-container a");
+    private By summaryProceed = By.cssSelector("p.cart_navigation.clearfix a");
+    private By addressProceed = By.cssSelector("button.button.btn.btn-default.button-medium span");
+    private By shippingProceed = By.cssSelector("button.button.btn.btn-default.standard-checkout.button-medium span");
     private By emailFieldCheckout = By.id("email");
     private By passwordFieldCheckout = By.id("passwd");
     private By submitButtonCheckout = By.id("SubmitLogin");
     private By checkBox = By.id("cgv");
-    private By payByWire = By.xpath("//*[@id=\"HOOK_PAYMENT\"]/div[1]/div/p/a");
-    private By confirmOrder = By.xpath("//*[@id=\"cart_navigation\"]/button/span");
-    private By orderComplete = By.xpath("//*[@id=\"center_column\"]/div/p/strong");
+    private By payByWire = By.cssSelector("div.col-md-6 p a.bankwire");
+    private By confirmOrder = By.cssSelector("button.button.btn.btn-default.button-medium span");
+    private By orderComplete = By.cssSelector("div.box");
 
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
@@ -66,7 +66,6 @@ public class CheckoutPage {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
         jse.executeScript("arguments[0].click();", element);
-
     }
 
     public void addressProceed() {
@@ -74,7 +73,6 @@ public class CheckoutPage {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
         jse.executeScript("arguments[0].click();", element);
-
     }
 
     public void shippingProceed() {
@@ -82,7 +80,6 @@ public class CheckoutPage {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
         jse.executeScript("arguments[0].click();", element);
-
     }
 
     public void proceedToCheckout() {
@@ -90,12 +87,11 @@ public class CheckoutPage {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
         jse.executeScript("arguments[0].click();", element);
-
     }
 
     public void waitForLoad(WebDriver driver) {
         ExpectedCondition<Boolean> pageLoadCondition = new
-                ExpectedCondition<Boolean>() {
+                ExpectedCondition<>() {
                     public Boolean apply(WebDriver driver) {
                         return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
                     }

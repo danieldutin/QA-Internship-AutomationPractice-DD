@@ -4,10 +4,10 @@ import base.BaseTests;
 import helper.ConfigFileReader;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import page.AccountPage;
 import page.HomePage;
 import page.LoginPage;
-import static org.testng.Assert.*;
+
+import static Constants.ConfigFileConstants.*;
 import static org.testng.Assert.assertTrue;
 
 public class NegativeLoginTests extends BaseTests {
@@ -19,18 +19,15 @@ public class NegativeLoginTests extends BaseTests {
         HomePage homePage = new HomePage(startWebDriver(browser));
 
         ConfigFileReader reader = new ConfigFileReader();
-        String email = reader.getProperty("negativeEmailCreate");
-        String pass = reader.getProperty("pass");
-        String errorMessage = reader.getProperty("invalidEmailMessage");
 
         LoginPage loginPage = homePage.clickSignUpButtonLogIn();
-        loginPage.setEmailField(email);
-        loginPage.setPasswordField(pass);
+        loginPage.setEmailField(reader.getProperty(negativeEmailCreate));
+        loginPage.setPasswordField(reader.getProperty(pass));
         loginPage.clickSignUpButton();
         Thread.sleep(2000);
         String error = loginPage.getAlertTextInvalidLogin();
 
-        assertTrue(error.contains(errorMessage));
+        assertTrue(error.contains(reader.getProperty(thereIs1Error)));
 
     }
 }

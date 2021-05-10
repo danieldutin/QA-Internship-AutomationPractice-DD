@@ -1,13 +1,13 @@
 package ProductListingPage;
 
-import ProductDisplayPage.ProductDetailPage;
+import ProductDetailPage.ProductDetailPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class WomanPage {
 
     private WebDriver driver;
-    public static final By selectItemBtn = By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/h5/a");
+    public static final By selectItemBtn = By.cssSelector("div.right-block a");
 
     public WomanPage(WebDriver driver) {
 

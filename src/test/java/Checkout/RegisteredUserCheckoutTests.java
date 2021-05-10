@@ -1,16 +1,16 @@
 package Checkout;
 
 import Payment.CheckoutPage;
-import ProductDisplayPage.ProductDetailPage;
+import ProductDetailPage.ProductDetailPage;
 import ProductListingPage.WomanPage;
 import base.BaseTests;
 import helper.ConfigFileReader;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import page.AccountPage;
 import page.HomePage;
 import page.LoginPage;
 
+import static Constants.ConfigFileConstants.*;
 import static org.testng.Assert.assertTrue;
 
 public class RegisteredUserCheckoutTests extends BaseTests {
@@ -23,15 +23,11 @@ public class RegisteredUserCheckoutTests extends BaseTests {
         HomePage homePage = new HomePage(startWebDriver(browser));
 
         ConfigFileReader reader = new ConfigFileReader();
-        String email = reader.getProperty("loginEmail");
-        String pass = reader.getProperty("pass");
 
         LoginPage loginPage = homePage.clickSignUpButtonLogIn();
-        loginPage.setEmailField(email);
-        loginPage.setPasswordField(pass);
+        loginPage.setEmailField(reader.getProperty(loginEmail));
+        loginPage.setPasswordField(reader.getProperty(pass));
         loginPage.clickSignUpButton();
-
-        String expectedResult = reader.getProperty("orderComplete");
 
         WomanPage womanPage = homePage.clickWomanButton();
 
@@ -50,7 +46,7 @@ public class RegisteredUserCheckoutTests extends BaseTests {
 
         String actualResult = checkoutPage.getAlertText();
 
-        assertTrue(actualResult.contains(expectedResult), "Invalid operation");
+        assertTrue(actualResult.contains(reader.getProperty(orderComplete)), "Invalid operation");
 
     }
 }

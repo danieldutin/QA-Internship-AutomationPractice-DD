@@ -17,5 +17,3 @@ public class AccountPage {
         return driver.findElement(welcomeMessage).getText();
     }
 }
-
-//private By welcomeMessage = By.id("center_column");

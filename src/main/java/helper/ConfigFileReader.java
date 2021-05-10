@@ -1,14 +1,14 @@
 package helper;
 
 import org.testng.Assert;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import static Constants.ConfigFileConstants.*;
+
 public class ConfigFileReader {
     private Properties properties;
-    private final String propertyFilePath = "resources\\config.properties";
 
     public ConfigFileReader() {
         try {
@@ -26,16 +26,16 @@ public class ConfigFileReader {
     }
 
     public String getApplicationUrl() {
-        String url = properties.getProperty("url");
-        if (url == null)
+        String currentUrl = properties.getProperty(url);
+        if (currentUrl == null)
             Assert.fail("Application Url not specified in the Configuration.properties file for the Key:url");
-        return url;
+        return currentUrl;
     }
 
     public String getDriverType() {
-        String browser = properties.getProperty("browser");
-        if (browser == null)
+        String browserType = properties.getProperty(browser);
+        if (browserType == null)
             Assert.fail("Browser is not specified in the Configuration.properties file");
-        return browser;
+        return browserType;
     }
 }

@@ -31,6 +31,3 @@ public class CreateAccountPage {
     }
 
 }
-
-//private By newEmail = By.id("email_create");
-//private By createButton = By.id("SubmitCreate");
