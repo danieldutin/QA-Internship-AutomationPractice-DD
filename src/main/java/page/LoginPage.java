@@ -28,6 +28,11 @@ public class LoginPage {
         return new AccountPage(driver);
     }
 
+    public String getAlertTextInvalidLogin() {
+
+        return driver.findElement(ERROR_MESSAGE_INVALID_EMAIL).getText();
+    }
+
 }
 
 

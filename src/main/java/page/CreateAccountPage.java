@@ -23,6 +23,11 @@ public class CreateAccountPage {
         return new NewUserPage(driver);
     }
 
+    public String getAlertTextInvalidEmail() {
+
+        return driver.findElement(ERROR_MESSAGE_CREATE_ACC_INVALID_EMAIL).getText();
+    }
+
 }
 
 //private By newEmail = By.id("email_create");

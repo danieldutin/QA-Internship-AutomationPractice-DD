@@ -36,6 +36,7 @@ public class HomePage {
         driver.findElement(CLOSE_POP_UP_BTN).click();
     }
 
+
 }
 
 //private By signUpButton = By.linkText("Sign in");

@@ -56,4 +56,8 @@ public class Locators {
     public static final By PRODUCT_IN_CART = By.xpath("//*[@id=\"product_1_1_0_490141\"]/td[2]/p/a");
     //for the WomanPage
     public static final By SELECT_ITEM_BUTTON = By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/h5/a");
+    //for Invalid Login email
+    public static final By ERROR_MESSAGE_INVALID_EMAIL = By.xpath("//*[@id=\"center_column\"]/div[1]/ol/li");
+    //for Invalid CreateAccount email
+    public static final By ERROR_MESSAGE_CREATE_ACC_INVALID_EMAIL = By.xpath("//*[@id=\"create_account_error\"]/ol/li");
 }
