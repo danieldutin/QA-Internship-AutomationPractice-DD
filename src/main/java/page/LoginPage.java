@@ -10,6 +10,7 @@ public class LoginPage {
     private By passwordField = By.id("passwd");
     private By submitButton = By.id("SubmitLogin");
     private By errMsgInvalidEmail = By.cssSelector("div.alert-danger p");
+    private By loginForm = By.cssSelector("form#login_form h3");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -34,6 +35,11 @@ public class LoginPage {
     public String getAlertTextInvalidLogin() {
 
         return driver.findElement(errMsgInvalidEmail).getText();
+    }
+
+    public String getLoginForm(){
+
+        return driver.findElement(loginForm).getText();
     }
 
 }

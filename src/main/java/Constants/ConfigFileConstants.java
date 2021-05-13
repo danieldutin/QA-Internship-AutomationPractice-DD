@@ -21,5 +21,6 @@ public class ConfigFileConstants {
     public static final String mobile = "mobileP";
     public static final String orderComplete = "orderComplete";
     public static final String propertyFilePath = "resources\\config.properties";
+    public static final String loginPageExists = "loginFormExists";
 
 }

@@ -6,11 +6,17 @@ Feature: Login functionality
   Scenario: Successful Login
 
     Given User is on the login page of the Automation Practice online store
-    When Valid credentials are entered
+    When When user click on Sign In button
+    Then The login page is available for the user
+    When User enter valid credentials
+    And  User click on Login button
     Then User must be redirected to My Account Page
 
   Scenario: Login denied - invalid credentials
 
     Given User is on the login page
+    When When user click on SignIn button
+    Then The login page is available for user
     When Invalid credentials are entered
+    And  User clicks on Login button
     Then Error message must be displayed
