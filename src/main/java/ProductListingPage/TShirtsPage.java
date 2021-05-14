@@ -2,13 +2,12 @@ package ProductListingPage;
 
 import org.openqa.selenium.WebDriver;
 
-public class DressesPage {
+public class TShirtsPage {
 
     private WebDriver driver;
 
-    public DressesPage(WebDriver driver) {
+    public TShirtsPage(WebDriver driver) {
 
         this.driver = driver;
     }
-
 }

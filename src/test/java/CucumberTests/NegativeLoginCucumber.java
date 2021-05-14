@@ -2,7 +2,6 @@ package CucumberTests;
 
 import base.BaseTests;
 import helper.ConfigFileReader;
-import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,8 +21,8 @@ public class NegativeLoginCucumber extends BaseTests {
     ConfigFileReader reader = new ConfigFileReader();
     LoginPage loginPage;
 
-    @Given("User is on the login page")
-    public void user_is_on_the_login_page_of_the_Automation_Practice_online_store() throws Exception {
+    @Given("User is on the home page")
+    public void user_is_on_the_home_page_of_the_Automation_Practice_online_store() throws Exception {
         homePage = new HomePage(startWebDriver("chrome"));
     }
 
@@ -57,6 +56,5 @@ public class NegativeLoginCucumber extends BaseTests {
         assertTrue(loginPage.getAlertTextInvalidLogin().contains(reader.getProperty(thereIs1Error)));
         closingDown();
     }
-
 
 }

@@ -21,8 +21,8 @@ public class LoginCucumber extends BaseTests {
     ConfigFileReader reader = new ConfigFileReader();
     LoginPage loginPage;
 
-    @Given("User is on the login page of the Automation Practice online store")
-    public void user_is_on_the_login_page_of_the_Automation_Practice_online_store() throws Exception {
+    @Given("User is on the home page of the Automation Practice online store")
+    public void user_is_on_the_home_page_of_the_Automation_Practice_online_store() throws Exception {
         homePage = new HomePage(startWebDriver("chrome"));
     }
 

@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import page.HomePage;
+
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -42,9 +43,7 @@ public class BaseTests {
         }
 
         driver.get(url);
-
         homePage = new HomePage(driver);
-
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
