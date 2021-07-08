@@ -1,6 +1,6 @@
-package ProductListingPage;
+package productListingPage;
 
-import ProductDetailPage.ProductDetailPage;
+import productDetailPage.ProductDetailPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

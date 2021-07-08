@@ -1,8 +1,8 @@
 package page;
 
-import Payment.CheckoutPage;
-import ProductListingPage.WomanPage;
-import ShoppingCart.CartPage;
+import payment.CheckoutPage;
+import productListingPage.WomanPage;
+import phoppingCart.CartPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

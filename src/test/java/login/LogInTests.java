@@ -1,4 +1,4 @@
-package Login;
+package login;
 
 import base.BaseTests;
 import helper.ConfigFileReader;
@@ -8,7 +8,7 @@ import page.AccountPage;
 import page.HomePage;
 import page.LoginPage;
 
-import static Constants.ConfigFileConstants.*;
+import static constants.ConfigFileConstants.*;
 import static org.testng.Assert.*;
 
 public class LogInTests extends BaseTests {

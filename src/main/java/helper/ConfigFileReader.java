@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-import static Constants.ConfigFileConstants.*;
+import static constants.ConfigFileConstants.*;
 
 public class ConfigFileReader {
     private Properties properties;

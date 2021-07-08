@@ -1,6 +1,6 @@
-package CucumberTests;
+package cucumberTests;
 
-import Payment.CheckoutPage;
+import payment.CheckoutPage;
 import base.BaseTests;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

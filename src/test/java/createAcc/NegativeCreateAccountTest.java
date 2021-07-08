@@ -1,42 +1,42 @@
-package CreateAcc;
+package createAcc;
 
 import base.BaseTests;
+import helper.ConfigFileReader;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import page.AccountPage;
 import page.CreateAccountPage;
 import page.HomePage;
 import page.NewUserPage;
-import helper.ConfigFileReader;
-
-import static Constants.ConfigFileConstants.*;
+import static constants.ConfigFileConstants.*;
 import static org.testng.Assert.assertTrue;
 
-public class CreateAccTests extends BaseTests {
+public class NegativeCreateAccountTest extends BaseTests {
 
     ConfigFileReader reader = new ConfigFileReader();
 
     @Test
     @Parameters("browser")
-    public void validEmailTest(String browser) throws Exception {
+    public void invalidEmailTest(String browser) throws Exception {
 
         HomePage homePage = new HomePage(startWebDriver(browser));
 
-        String email = getRandomEmail() + "@email.com";
-        String confirmation = reader.getProperty(authentication);
+        String email = reader.getProperty("negativeEmailCreate");
+        String errorMessage = reader.getProperty("invalidEmailMessage");
 
         CreateAccountPage createAccountPage = homePage.clickSignUpButtonCreate();
         createAccountPage.setEmailField(email);
-        NewUserPage newUserPage = createAccountPage.clickCreateButton();
+        createAccountPage.clickCreateButton();
+        Thread.sleep(2000);
 
-        String actualContent = newUserPage.getAlertText();
-        assertTrue(actualContent.contains(confirmation), "Alert is incorrect!");
+        String actualContent = createAccountPage.getAlertTextInvalidEmail();
+        assertTrue(actualContent.contains(errorMessage));
 
     }
 
     @Test
     @Parameters("browser")
-    public void accountCreatedTest(String browser) throws Exception {
+    public void titleFieldNegativeTest(String browser) throws Exception {
 
         HomePage homePage = new HomePage(startWebDriver(browser));
 
@@ -44,7 +44,6 @@ public class CreateAccTests extends BaseTests {
         createAccountPage.setEmailField(getRandomEmail() + "@email.com");
         NewUserPage newUserPage = createAccountPage.clickCreateButton();
 
-        newUserPage.setTitle(reader.getProperty(checkBoxTitle));
         newUserPage.setFirstName(reader.getProperty(name));
         newUserPage.setLastName(reader.getProperty(surName));
         newUserPage.setPassword(reader.getProperty(passWord));
@@ -56,13 +55,12 @@ public class CreateAccTests extends BaseTests {
         newUserPage.selectStateDropDown();
         newUserPage.setZipCode(reader.getProperty(zip));
         newUserPage.setMobileP(reader.getProperty(mobile));
+        Thread.sleep(2000);
 
         AccountPage accountPage = newUserPage.clickRegButton();
 
-        String myAccountText = accountPage.getAlertText();
+        String errorText = accountPage.getAlertText();
 
-        assertTrue(myAccountText.contains(reader.getProperty(confirmed)), "Incorrect data");
-
+        assertTrue(errorText.contains(reader.getProperty(invalidEmailMessage)), "Incorrect data");
     }
-
 }

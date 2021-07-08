@@ -1,8 +1,8 @@
-package Checkout;
+package checkout;
 
-import Payment.CheckoutPage;
-import ProductDetailPage.ProductDetailPage;
-import ProductListingPage.WomanPage;
+import payment.CheckoutPage;
+import productDetailPage.ProductDetailPage;
+import productListingPage.WomanPage;
 import base.BaseTests;
 import helper.ConfigFileReader;
 import org.testng.annotations.Parameters;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import page.HomePage;
 import page.LoginPage;
 
-import static Constants.ConfigFileConstants.*;
+import static constants.ConfigFileConstants.*;
 import static org.testng.Assert.assertTrue;
 
 public class RegisteredUserCheckoutTests extends BaseTests {

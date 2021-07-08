@@ -1,6 +1,6 @@
-package Checkout;
+package checkout;
 
-import Payment.CheckoutPage;
+import payment.CheckoutPage;
 import base.BaseTests;
 import helper.ConfigFileReader;
 import org.junit.Test;
